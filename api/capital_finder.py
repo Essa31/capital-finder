@@ -1,11 +1,12 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler
 from urllib import parse
 import requests
 
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
-        url_components = parse.urlsplit(self.path)
+        path=self.path
+        url_components = parse.urlsplit(path)
         query_string_list = parse.parse_qsl(url_components.query)
         dictionary = dict(query_string_list)
 
