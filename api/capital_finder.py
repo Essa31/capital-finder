@@ -37,13 +37,3 @@ class handler(BaseHTTPRequestHandler):
 
         return
 
-def main():
-    port = 8000
-    server_address = ('localhost', port)
-    server = HTTPServer(server_address, handler)
-    print(f'Server is running')
-    server.serve_forever()
-
-
-if __name__ == "__main__":
-    main()
