@@ -3,7 +3,7 @@ from urllib import parse
 import requests
 
 
-class Handler(BaseHTTPRequestHandler):
+class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         url_components = parse.urlsplit(self.path)
         query_string_list = parse.parse_qsl(url_components.query)
@@ -40,7 +40,7 @@ class Handler(BaseHTTPRequestHandler):
 def main():
     port = 8000
     server_address = ('localhost', port)
-    server = HTTPServer(server_address, Handler)
+    server = HTTPServer(server_address, handler)
     print(f'Server is running')
     server.serve_forever()
 
