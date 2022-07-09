@@ -14,7 +14,7 @@ class handler(BaseHTTPRequestHandler):
             url = 'https://restcountries.com/v3.1/name/'
             response = requests.get(url + country)
             data = response.json()
-            capital_response = data[0]["capital"]
+            capital_response = data[0]["capital"][0]
             message = f"The capital of " + str(country) + " is " + str(capital_response)
 
         elif 'capital' in dictionary:
@@ -22,9 +22,9 @@ class handler(BaseHTTPRequestHandler):
             url = 'https://restcountries.com/v2/capital/'
             response = requests.get(url + capital)
             data = response.json()
-            capitals = data[0]["capital"]
-            country_name = data[0]["name"]
-            message = str(capitals) + " is " + "the capital of " + str(country_name)
+            the_name = data[0]["name"]
+            message = str(capital) + " is the capital of " + str(the_name)
+
 
         else:
             message = "Please write a city name to get info about it"
